@@ -7,11 +7,14 @@ import apiUrl from "../../apiConfig";
 
 function Items() {
     const [items, setItems] = useState([])
+    const [isLoading, setIsLoading ] = useState(false)
 
     const fetchData = async () => {
+        setIsLoading(true)
         try {
             const response = await axios(`${apiUrl}/items`)
             setItems(response.data.items)
+            setIsLoading(false)
         } catch (error) {
             console.error(error)
         }
@@ -33,6 +36,7 @@ function Items() {
             <ul>
                 {itemsData}
             </ul>
+            {isLoading ? <p>Loading...</p> : <p></p>}
         </div>
     )
 }
