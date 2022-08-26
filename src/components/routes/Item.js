@@ -55,6 +55,11 @@ function Item() {
             <h4>{item.title}</h4>
             <p>Link: {item.link}</p>
             <button onClick={() => destroy()}>Delete Item</button>
+         
+            <NavLink to={`/items/${id}/edit`} >
+                <button>Edit</button>
+            </NavLink>
+
             <NavLink to="/items">Back to all items</NavLink>
         </Layout>
     )
